@@ -31,4 +31,14 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// ✅ Route to get all users
+router.get("/", async (req, res) => {
+  try {
+    const users = await User.find(); // Fetch all users from MongoDB
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;
