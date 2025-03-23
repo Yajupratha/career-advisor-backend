@@ -30,7 +30,7 @@ router.post('/add', validateCareer, async (req, res) => {
     }
 });
 
-// ✅ Route to get all careers
+// Route to get all careers
 router.get('/', async (req, res) => {
     try {
         const careers = await Career.find();
