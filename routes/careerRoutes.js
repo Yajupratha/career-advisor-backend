@@ -33,7 +33,7 @@ router.post('/add', validateCareer, async (req, res) => {
 // Route to get all careers
 router.get('/', async (req, res) => {
     try {
-        const careers = await Career.find();
+        let careers = await Career.find();
         careers = careers.filter(career => career.name && career.name.trim() !== ""); // Filter out empty names
         res.json(careers);
     } catch (error) {
